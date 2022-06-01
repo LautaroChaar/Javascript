@@ -22,5 +22,5 @@ switch (catchPokemon) {
         alert(`Usted atrapó a ${pokemons[3]}`)
         break;
     default:
-        prompt(`No ha sido posible atrapar un pokemon, intentelo nuevamente.`);
+        alert(`No ha sido posible atrapar un pokemon`);
 }
