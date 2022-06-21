@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="./game.js" defer></script>
 </head>
 <body>
         <header>
@@ -13,7 +14,7 @@
         <main>
             <h1>MEMOTEST</h1>
             <section>
-                <!-- <form>
+                <form>
                     <fieldset>
                         <legend>Seleccione una dificultad</legend>
                             <label class="form-label">Dificultad: </label>
@@ -22,9 +23,11 @@
                                 <option value="Intermedio">Intermedio</option>
                                 <option value="Difícil">Difícil</option>
                             </select>
-                            <button type="button" id="button">Jugar</button>
+                            <button type="button" id="startButton">Jugar</button>
+                            <button type="button" id="restartButton">Reiniciar</button>
+                            <div class="form-text">Fácil (8 números), Intermedio (14 números) y Difícil (20 números).</div>
                     </fieldset>       
-                </form> -->
+                </form>
             </section>
             <section class="game-area" id="game">
                 
@@ -37,6 +40,6 @@
         <footer>
 
         </footer>
-    <script src="./game.js"></script>
+    
 </body>
 </html>
