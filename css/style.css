@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; }
+  
+  body {
+    background-color: #d38958; }
+    body div main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      width: 100%; }
+      body div main h1 {
+        color: #663803;
+        font-size: 3rem; }
+      body div main .game-area {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 390px;
+        backdrop-filter: blur(4px);
+        perspective: 200px; }
+      body div main .btnGame {
+        width: 100px;
+        height: 100px;
+        margin: 2px; }
+    body .statistics {
+      display: flex;
+      flex-direction: column; }
