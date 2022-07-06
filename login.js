@@ -3,9 +3,6 @@ const loginBtn = document.getElementById("login");
 // Login
 loginBtn.addEventListener("click", login);
 
-
-
-
 function login() {
   const name = document.getElementById("playerName").value.trim();
   if (name !== "") {

@@ -51,12 +51,6 @@ function restart() {
   gameContainer.innerHTML = "";
   gameNumbers = [];
   elements = [];
-  fullPokeball = [];
-  cardsContainer = [];
-  imgContainer = [];
-  accumulator = 0;
-  id = 0;
-  success = 0;
   movesAddition = 0;
   showTime.innerHTML = `Tiempo: 0 min 0 seg`;
   moves.innerHTML = `Movimientos: 0`;

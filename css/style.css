@@ -8,9 +8,6 @@ body {
   body div header {
     color: #8b8b8b;
     font-size: 1rem; }
-    body div header .h1 {
-
-    }
   body div main {
     display: flex;
     flex-direction: column;
