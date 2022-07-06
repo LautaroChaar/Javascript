@@ -7,41 +7,66 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./game.js" defer></script>
+    <script src="./index.js" defer></script>
+    <script src="./game1.js" defer></script>
+    <script src="./login.js"  defer></script>
+    <script src="./constants.js"  defer></script>
 </head>
-<body>
+<body onload="session()">
     <div class="container-fluid vh-100">
         <header class="row">
-
+        <h1 class="col text-center h1" id="greeting"></h1>
         </header>
-        <main class="row">
-            <h1 class="col text-center">MEMOTEST</h1>
+        <main class="row m-0">
+            <section class="instructions" id="instructionsContainer">
+                <h2>Bienvenido/a!</h2>
+                <div>
+                    <p class="text-center">Este memotest cuenta con 2 estilos de juego y 3 dificultades para cada uno.</p> 
+                    <h3>"Numbers"</h3>
+                    <p class="text-center">Se generaran unos botones con un numero impreso en cada uno. Los numeros se mostraran por unos segundos y luego desapareceran. Usted tendra que ir encontrandolos de menor a mayor (ej: 1 < 2 < 3...).</p>
+                    <form id="playerForm">
+                        <fieldset>
+                            <label>Nombre del jugador</label>
+                            <input type="text" id="playerName" onkeypress="return event.keyCode != 13;">
+                            <button type="button" id="login">Ingresar</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </section>
             <section class="setGame">
                 <form>
                     <fieldset>
-                        <legend>Seleccione una dificultad</legend>
-                            <label class="form-label">Juego:</label>
-                            <select name="typeOfGame" id="typeOfGame">
-                                <option value="Juego 1">Juego 1</option>
-                                <option value="Juego 2">Juego 2</option>
-                            </select>
-                            <label class="form-label">Dificultad:</label>
-                            <select id="dificultad" name="dificultad">
-                                <option value="Fácil">Fácil</option>
-                                <option value="Intermedio">Intermedio</option>
-                                <option value="Difícil">Difícil</option>
-                            </select>
-                            <button type="button" id="startButton">Jugar</button>
-                            <button type="button" id="restartButton">Reiniciar</button>
-                            <div class="form-text">Fácil (8 numeros), Intermedio (14 numeros) y Difícil (20 numeros).</div>
+                            <div class="settings">
+                                <div>
+                                    <label class="form-label">Juego</label>
+                                    <select name="typeOfGame" id="typeOfGame">
+                                        <option value="Numbers">Numbers</option>
+                                        <option value="Pokememo">Pokememo</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="form-label">Dificultad</label>
+                                    <select id="dificultad" name="dificultad">
+                                        <option value="Fácil">Fácil</option>
+                                        <option value="Intermedio">Intermedio</option>
+                                        <option value="Difícil">Difícil</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <button type="button" id="startButton">Jugar</button>
+                                <button type="button" id="restartButton">Reiniciar</button>
+                                <button type="button" id="logoutButton">Salir</button>
+                            </div>
+                            <div class="form-text">Fácil (8 elementos), Intermedio (14 elementos) y Difícil (20 elementos).</div>
                     </fieldset>       
                 </form>
             </section>
             <section class="col game-area"  id="gameContainer">
                 
             </section>
-            <section class="col">
-                <h2 class="row statistics" id="time">Tiempo: 0 seg</h2>
+            <section class="col score">
+                <h2 class="row statistics" id="time">Tiempo: 0 min 0 seg</h2>
                 <h2 class="row statistics" id="moves">Movimientos: 0</h2>
             </section>
         </main>
