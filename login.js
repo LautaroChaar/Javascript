@@ -9,7 +9,7 @@ function login() {
     goPlayroom();
     localStorage.setItem(STORAGE_KEYS.USER_LOGGED_IN, name);
     const playerData = localStorage.getItem(name);
-    greeting.innerHTML = `Bienvenido/a ${name}`;
+    greeting.innerHTML = `${name}`;
     if (playerData === null) {
       localStorage.setItem(
         name,
@@ -19,7 +19,7 @@ function login() {
         })
       );
     }
-    
+    infoVictories();
   }
 }
 
@@ -39,8 +39,7 @@ function playerlogout() {
 // Validar sesion de jugador
 function session() {
   const user = localStorage.getItem(STORAGE_KEYS.USER_LOGGED_IN);
-  greeting.innerHTML = `Bienvenido/a ${user}`;
-  if (user !== null) {
-    goPlayroom();
-  }
+  greeting.innerHTML = `${user}`;
+  user !== null && goPlayroom();
+  infoVictories();
 }

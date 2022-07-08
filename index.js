@@ -11,6 +11,7 @@ const instructionContainer = document.getElementById("instructionsContainer");
 const moves = document.getElementById("moves");
 const showTime = document.getElementById("time");
 const greeting = document.getElementById("greeting");
+const trophieButton = document.getElementById("victoriesBtn");
 
 // Timer
 function startTime(stopTimer) {
@@ -25,8 +26,26 @@ function startTime(stopTimer) {
     }
     if (win === true || clearTimer === true) {
       clearInterval(stopTimer);
+      showTime.innerHTML = `Tiempo: 0 min 0 seg`;
     }
   }, 1000);
+}
+
+
+// Info victorias
+function infoVictories() {
+  trophieButton.addEventListener("click", info);
+
+  function info() {
+    const playerName = localStorage.getItem(STORAGE_KEYS.USER_LOGGED_IN);
+    const playerData = JSON.parse(localStorage.getItem(playerName));
+    Swal.fire({
+      title: 'Trofeos',
+      text: `Tienes ${playerData.trophies} trofeo/s`,
+      icon: 'info',
+      confirmButtonText: ':)'
+    });
+  }
 }
 
 // Contar victorias
@@ -38,8 +57,16 @@ function winTrophie() {
     trophies: Number(playerData.trophies + 1),
   };
   localStorage.setItem(playerName, JSON.stringify(newPlayerData));
+  moves.innerHTML = `Movimientos: 0`;
+  
   setTimeout(function () {
-    gameContainer.innerHTML = `Felicitaciones ${playerName}, GANASTE!! `;
+    Swal.fire({
+      title: 'GANASTE!',
+      text: `Felicitaciones ${playerName}`,
+      icon: 'success',
+      confirmButtonText: 'Obtener trofeo'
+    });
+    restart()
   }, 500); 
 }
 
@@ -51,6 +78,7 @@ function restart() {
   gameContainer.innerHTML = "";
   gameNumbers = [];
   elements = [];
+  uncoverNumber = 0;
   movesAddition = 0;
   showTime.innerHTML = `Tiempo: 0 min 0 seg`;
   moves.innerHTML = `Movimientos: 0`;
@@ -80,10 +108,7 @@ function createGame() {
   win = false;
   clearTimer = false;
   let game = selectTypeOfGame();
-  if (game === "Numbers") {
-    numberGame();
-  } else {
-    pokemonGame();
-  }
+  game === "Numbers" && numberGame();
   startButton.removeEventListener("click", createGame);
 }
+

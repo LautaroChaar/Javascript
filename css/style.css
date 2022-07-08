@@ -6,8 +6,20 @@
 body {
   background-color: #24212b; }
   body div header {
+    padding-top: 10px;
     color: #8b8b8b;
-    font-size: 1rem; }
+    font-size: 1rem;
+    flex-direction: column;
+    align-items: center; }
+    body div header .victories {
+      width: fit-content;
+      background: transparent;
+      color: #8b8b8b;
+      border: none;
+    }
+    body div header .victories:hover {
+      color: #ffe94b;
+    }
   body div main {
     display: flex;
     flex-direction: column;
@@ -38,9 +50,7 @@ body {
       width: 250px;
     }
 
-    body div main .instructions div h3 {
-      font-size: 1.6rem;
-    }
+   
     body div main .instructions div form fieldset {
       display: flex;
       flex-direction: column;
@@ -127,6 +137,7 @@ body {
       flex-wrap: wrap;
       color: rgb(247, 193, 132);
       width: 90%;
+      max-width: 398px;
       min-height: 106px;
       margin: 16px 0 16px 0;
       backdrop-filter: blur(4px);
@@ -139,11 +150,11 @@ body {
       justify-content: center;
       align-items: center;
     }
-    body div main .score h2 {
+    body div main .score .statistics {
+      display: flex;
+      flex-direction: column;
       color: #8b8b8b;
-      font-size: 1rem;
-    }
-
+      font-size: 1rem }
 
     body div main .btnGame {
       font-weight: bolder;
@@ -154,6 +165,6 @@ body {
       margin: 4px; }
 
 
-  body .statistics {
-    display: flex;
-    flex-direction: column; }
+  
+
+
