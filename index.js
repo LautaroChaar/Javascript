@@ -43,13 +43,50 @@ function infoVictories() {
       title: 'Trofeos',
       text: `Tienes ${playerData.trophies} trofeo/s`,
       icon: 'info',
-      confirmButtonText: ':)'
+      background: '#1b1a21',
+      confirmButtonText: 'Volver a la sala :)',
+      confirmButtonColor: '#2a2731'
     });
   }
 }
 
+// alert juego 1
+const winAlert1 = () => {
+  const playerName = localStorage.getItem(STORAGE_KEYS.USER_LOGGED_IN);
+  setTimeout(function () {
+    Swal.fire({
+      title: 'GANASTE!',
+      text: `Felicitaciones ${playerName}`,
+      color: '#c59938',
+      imageUrl: './trofeo.jpg',
+      background: '#1b1a21',
+      confirmButtonText: 'Obtener trofeo',
+      confirmButtonColor: '#2a2731'
+    });
+    restart()
+  }, 500); 
+}
+
+// alert juego 2
+const winAlert2 = () => {
+  const playerName = localStorage.getItem(STORAGE_KEYS.USER_LOGGED_IN);
+  setTimeout(function () {
+    Swal.fire({
+      title: 'GANASTE!',
+      text: `Felicitaciones ${playerName}`,
+      color: '#c59938',
+      imageUrl: './pikachu.jpg',
+      background: '#1b1a21',
+      confirmButtonText: 'Obtener trofeo',
+      confirmButtonColor: '#2a2731'
+    });
+    restart()
+  }, 500);  
+}
+
 // Contar victorias
 function winTrophie() {
+  let game = selectTypeOfGame();
   const playerName = localStorage.getItem(STORAGE_KEYS.USER_LOGGED_IN);
   const playerData = JSON.parse(localStorage.getItem(playerName));
   const newPlayerData = {
@@ -58,17 +95,10 @@ function winTrophie() {
   };
   localStorage.setItem(playerName, JSON.stringify(newPlayerData));
   moves.innerHTML = `Movimientos: 0`;
-  
-  setTimeout(function () {
-    Swal.fire({
-      title: 'GANASTE!',
-      text: `Felicitaciones ${playerName}`,
-      icon: 'success',
-      confirmButtonText: 'Obtener trofeo'
-    });
-    restart()
-  }, 500); 
+  game === "Numbers" ? winAlert1() : winAlert2();
 }
+
+
 
 // Reiniciar juego
 restartButton.addEventListener("click", restart);
@@ -80,6 +110,12 @@ function restart() {
   elements = [];
   uncoverNumber = 0;
   movesAddition = 0;
+  fullPokeball = [];
+  cardsContainer = [];
+  imgContainer = [];
+  accumulator = 0;
+  id = 0;
+  success = 0;
   showTime.innerHTML = `Tiempo: 0 min 0 seg`;
   moves.innerHTML = `Movimientos: 0`;
   startButton.addEventListener("click", createGame);
@@ -108,7 +144,7 @@ function createGame() {
   win = false;
   clearTimer = false;
   let game = selectTypeOfGame();
-  game === "Numbers" && numberGame();
+  game === "Numbers" ? numberGame() : pokemonGame();
   startButton.removeEventListener("click", createGame);
 }
 
