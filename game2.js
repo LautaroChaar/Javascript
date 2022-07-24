@@ -151,7 +151,7 @@ const pokemonGame = async () => {
             card.classList.remove("secondCard");
             cardId.classList.remove("rotate");
             cardId.classList.remove("firstCard");
-          }, 1000);
+          }, 800);
           selectCards = 0;
         } else {
           success++;

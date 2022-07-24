@@ -82,18 +82,24 @@ const numberGame = () => {
   gameNumbers.forEach((btn, idex) => {
     btn.innerHTML = idex + 1;
     btn.disabled = true;
-    if (dificulty === "Fácil" || dificulty === "Intermedio") {
+    if (dificulty === "Fácil") {
       setTimeout(() => {
         btn.innerHTML = " ";
         btn.disabled = false;
         startTime(stopTimer);
       }, 5000);
+    } else if (dificulty === "Intermedio") {
+      setTimeout(() => {
+        btn.innerHTML = " ";
+        btn.disabled = false;
+        startTime(stopTimer);
+      }, 11000);
     } else {
       setTimeout(() => {
         btn.innerHTML = " ";
         btn.disabled = false;
         startTime(stopTimer);
-      }, 10000);
+      }, 17000);
     }
 
     // Mostramos el numero al hacer click en el boton
