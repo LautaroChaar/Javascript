@@ -31,7 +31,6 @@ function startTime(stopTimer) {
   }, 1000);
 }
 
-
 // Info victorias
 function infoVictories() {
   trophieButton.addEventListener("click", info);
@@ -39,10 +38,33 @@ function infoVictories() {
   function info() {
     const playerName = localStorage.getItem(STORAGE_KEYS.USER_LOGGED_IN);
     const playerData = JSON.parse(localStorage.getItem(playerName));
+    const numbersInfoEasy = playerData.score.scoreNumbers.easy;
+    const numbersInfoMedium = playerData.score.scoreNumbers.medium;
+    const numbersInfoHard = playerData.score.scoreNumbers.hard;
+    const pokememoInfoEasy = playerData.score.scorePokememo.easy;
+    const pokememoInfoMedium = playerData.score.scorePokememo.medium;
+    const pokememoInfoHard = playerData.score.scorePokememo.hard; 
+    numbersInfoEasy.length < 1 ? numbersEasyRes = playerData.score.scoreNumbers.easy : numbersEasyRes = Math.min(...playerData.score.scoreNumbers.easy);
+    numbersInfoMedium.length < 1 ? numbersMediumRes = playerData.score.scoreNumbers.medium : numbersMediumRes = Math.min(...playerData.score.scoreNumbers.medium);
+    numbersInfoHard.length < 1 ? numbersHardRes = playerData.score.scoreNumbers.hard : numbersHardRes = Math.min(...playerData.score.scoreNumbers.hard);
+    pokememoInfoEasy.length < 1 ? pokemomeEasyRes = playerData.score.scorePokememo.easy : pokemomeEasyRes = Math.min(...playerData.score.scorePokememo.easy);
+    pokememoInfoMedium.length < 1 ? pokemomeMediumRes = playerData.score.scorePokememo.medium : pokemomeMediumRes = Math.min(...playerData.score.scorePokememo.medium);
+    pokememoInfoHard.length < 1 ? pokemomeHardRes = playerData.score.scorePokememo.hard : pokemomeHardRes = Math.min(...playerData.score.scorePokememo.hard);
+
     Swal.fire({
-      title: 'Trofeos',
-      text: `Tienes ${playerData.trophies} trofeo/s`,
-      icon: 'info',
+      title: 'Estadísticas',
+      color: '#8b8b8b',
+      html: `
+      <p class="trofeos">Has ganado <span>${playerData.trophies}</span> trofeos</p>
+      <p class="scoreTitle">Mejor score Numbers</p>
+      <div class="dificulty">
+      <p>Fácil: <span>${numbersEasyRes}</span></p><p> Intermedio: <span>${numbersMediumRes}</span></p><p> Difícil: <span>${numbersHardRes}</span></p>
+      </div>
+      <p class="scoreTitle">Mejor score Pokememo</p>
+      <div class="dificulty">
+      <p>Fácil: <span>${pokemomeEasyRes}</span></p><p> Intermedio: <span>${pokemomeMediumRes}</span></p><p> Difícil: <span>${pokemomeHardRes}</span></p>
+      </div>
+      `,
       background: '#1b1a21',
       confirmButtonText: 'Volver a la sala :)',
       confirmButtonColor: '#2a2731'
@@ -97,8 +119,6 @@ function winTrophie() {
   moves.innerHTML = `Movimientos: 0`;
   game === "Numbers" ? winAlert1() : winAlert2();
 }
-
-
 
 // Reiniciar juego
 restartButton.addEventListener("click", restart);

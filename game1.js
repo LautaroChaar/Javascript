@@ -1,6 +1,55 @@
 // Variables juego 1
 let gameNumbers = [];
 let uncoverNumber = 0;
+let scoreNumbersEasy = [];
+let scoreNumbersMedium = [];
+let scoreNumbersHard = [];
+let numbersEasyRes;
+let numbersMediumRes;
+let numbersHardRes;
+
+// Guardar score
+const saveScoreNumbers = () => {
+  let dificulty = selectDifficulty();
+  const playerName = localStorage.getItem(STORAGE_KEYS.USER_LOGGED_IN);
+  const playerData = JSON.parse((localStorage.getItem(playerName)));
+  let newPlayerData;
+  if (dificulty === "Fácil") {
+    let scoreArray = playerData.score.scoreNumbers.easy;
+    let arrayElement = scoreNumbersEasy.shift();
+    scoreArray.push(arrayElement);
+    let result = scoreArray.filter((item,index)=>{
+      return scoreArray.indexOf(item) === index;
+    })
+    newPlayerData = {
+      ...playerData,
+      score: { ...playerData.score, scoreNumbers: {...playerData.score.scoreNumbers, easy: result}}
+    } 
+  } else if (dificulty === "Intermedio") {
+    let scoreArray = playerData.score.scoreNumbers.medium;
+    let arrayElement = scoreNumbersMedium.shift();
+    scoreArray.push(arrayElement);
+    let result = scoreArray.filter((item,index)=>{
+      return scoreArray.indexOf(item) === index;
+    })
+    newPlayerData = {
+      ...playerData,
+      score: { ...playerData.score, scoreNumbers: {...playerData.score.scoreNumbers, medium: result}}
+    }
+  } else {
+    let scoreArray = playerData.score.scoreNumbers.hard;
+    let arrayElement = scoreNumbersHard.shift();
+    scoreArray.push(arrayElement);
+    let result = scoreArray.filter((item,index)=>{
+      return scoreArray.indexOf(item) === index;
+    })
+    newPlayerData = {
+      ...playerData,
+      score: { ...playerData.score, scoreNumbers: {...playerData.score.scoreNumbers, hard: result}}
+    }
+  }
+  localStorage.setItem(playerName, JSON.stringify(newPlayerData));
+}
 
 // Programamos el juego en base a su dificultad
 // Juego 1
@@ -44,7 +93,7 @@ const numberGame = () => {
         btn.innerHTML = " ";
         btn.disabled = false;
         startTime(stopTimer);
-      }, 9000);
+      }, 10000);
     }
 
     // Mostramos el numero al hacer click en el boton
@@ -62,7 +111,11 @@ const numberGame = () => {
         btn.style.color = "#3da73d";
         btn.disabled = true;
         if (uncoverNumber == gameNumbers.length) {
+          dificulty === "Fácil" && scoreNumbersEasy.push(movesAddition);
+          dificulty === "Intermedio" && scoreNumbersMedium.push(movesAddition);
+          dificulty === "Difícil" && scoreNumbersHard.push(movesAddition);
           win = true;
+          saveScoreNumbers();
           winTrophie();
           uncoverNumber = 0;
         }
@@ -75,3 +128,4 @@ const numberGame = () => {
     }
   });
 };
+

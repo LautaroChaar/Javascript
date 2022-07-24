@@ -16,6 +16,10 @@ function login() {
         JSON.stringify({
           name,
           trophies: 0,
+          score: {
+            scoreNumbers: {easy: [], medium: [], hard: []},
+            scorePokememo: {easy: [], medium: [], hard: []}
+          }
         })
       );
     }

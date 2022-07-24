@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://kit.fontawesome.com/c63c6e67f1.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    <script src="./constants.js"  defer></script>
+    <script src="./login.js"  defer></script>
     <script src="./index.js" defer></script>
     <script src="./game1.js" defer></script>
     <script src="./game2.js" defer></script>
-    <script src="./login.js"  defer></script>
-    <script src="./constants.js"  defer></script>
 </head>
 <body onload="session()">
     <div class="container-fluid vh-100">
@@ -27,9 +27,9 @@
                 <div>
                     <p class="text-center">Este memotest cuenta con 2 estilos de juego y 3 dificultades para cada uno.</p> 
                     <h3>"Numbers"</h3>
-                    <p class="text-center">Se generaran unos botones con un numero impreso en cada uno. Los numeros se mostraran por unos segundos y luego desapareceran. Usted tendra que ir encontrandolos de menor a mayor (ej: 1 < 2 < 3...).</p>
+                    <p class="text-center">Se generarán unos botones con un número impreso en cada uno. Los números se mostrarán por unos segundos y luego desaparecerán. Usted tendrá que ir encontrándolos de menor a mayor (1 < 2 < 3...).</p>
                     <h3>"Pokememo"</h3>
-                    <p class="text-center">Este juego consiste en encontrar los dos pokemons iguales. Debera ir dando vuelta las pokebolas para ver que pokemon contiene cada una de ellas. Si al dar vuelta dos pokebolas los pokemons no coinciden, se volveran a ocultar. Cuando los pokemons coincidan quedaran dadas vuelta permanentemente hasta completar el juego.</p>
+                    <p class="text-center">Este juego consiste en encontrar los dos pokemones iguales. Deberá ir dando vuelta las pokebolas para ver que pokemon contiene cada una de ellas. Si al dar vuelta dos pokebolas los pokemones no coinciden, se volverán a ocultar. Cuando los pokemones coincidan quedaran dadas vuelta permanentemente hasta completar el juego.</p>
                     <form id="playerForm">
                         <fieldset>
                             <label>Nombre del jugador</label>
@@ -42,29 +42,29 @@
             <section class="setGame">
                 <form>
                     <fieldset>
-                            <div class="settings">
-                                <div>
-                                    <label class="form-label">Juego</label>
-                                    <select name="typeOfGame" id="typeOfGame">
-                                        <option value="Numbers">Numbers</option>
-                                        <option value="Pokememo">Pokememo</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="form-label">Dificultad</label>
-                                    <select id="dificultad" name="dificultad">
-                                        <option value="Fácil">Fácil</option>
-                                        <option value="Intermedio">Intermedio</option>
-                                        <option value="Difícil">Difícil</option>
-                                    </select>
-                                </div>
+                        <div class="settings">
+                            <div>
+                                <label class="form-label">Juego</label>
+                                <select name="typeOfGame" id="typeOfGame">
+                                    <option value="Numbers">Numbers</option>
+                                    <option value="Pokememo">Pokememo</option>
+                                </select>
                             </div>
-                            <div class="buttons">
-                                <button type="button" id="startButton">Jugar</button>
-                                <button type="button" id="restartButton">Reiniciar</button>
-                                <button type="button" id="logoutButton">Salir</button>
+                            <div>
+                                <label class="form-label">Dificultad</label>
+                                <select id="dificultad" name="dificultad">
+                                    <option value="Fácil">Fácil</option>
+                                    <option value="Intermedio">Intermedio</option>
+                                    <option value="Difícil">Difícil</option>
+                                </select>
                             </div>
-                            <div class="form-text">Fácil (8 elementos), Intermedio (14 elementos) y Difícil (20 elementos).</div>
+                        </div>
+                        <div class="buttons">
+                            <button type="button" id="startButton">Jugar</button>
+                            <button type="button" id="restartButton">Reiniciar</button>
+                            <button type="button" id="logoutButton">Salir</button>
+                        </div>
+                        <div class="form-text">Fácil (8 elementos), Intermedio (14 elementos) y Difícil (20 elementos).</div>
                     </fieldset>       
                 </form>
             </section>

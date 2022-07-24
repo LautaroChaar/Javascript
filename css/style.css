@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Mitr:wght@200;300;400;500;600;700&family=Paprika&family=Roboto:wght@100;400;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 * {
   padding: 0;
   margin: 0;
+  font-family: 'Ubuntu', sans-serif;
   box-sizing: border-box; }
 
 body {
@@ -37,7 +40,7 @@ body {
       padding: 12px;
       height: 100vh;
       color: #24212b;
-      background-color: rgb(245, 245, 220);
+      background-color: #f5f5dc;
     }
     body div main .instructions div {
       display: flex;
@@ -109,7 +112,7 @@ body {
       padding: 2px;
       background-color: transparent;
       border: none;
-      color: rgb(247, 193, 132);
+      color: #f7c184;
     }
     body div main .setGame form fieldset .buttons {
       display: flex;
@@ -126,7 +129,7 @@ body {
       justify-content: center;
       flex-direction: row;
       flex-wrap: wrap;
-      color: rgb(247, 193, 132);
+      color: #f7c184;
       width: 90%;
       max-width: 398px;
       min-height: 106px;
@@ -139,7 +142,7 @@ body {
         position: relative;
         margin: 6px;
         transform-style: preserve-3d;
-        box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px;
+        box-shadow: #000000cc 0px 5px 15px;
         border: none;
         border-radius: 110px;
         transition: .3s;
@@ -154,12 +157,14 @@ body {
         backface-visibility: hidden;
         display: flex;
         justify-content: center;
-        align-items: center; }
+        align-items: center; 
+      }
       body div main .game-area .frontCard {
         height: 100px;
         width: 100%;
         height: 100%;
-        transition: .3s;}
+        transition: .3s;
+      }
       body div main .game-area .backCard {
         height: 100px;
         width: 100%;
@@ -167,10 +172,12 @@ body {
         padding: 6px;
         transform: rotateY(-180deg);
         border-radius: 110px;
-        transition: .3s; }
+        transition: .3s; 
+      }
         body div main .game-area .backCard .pokeImg {
           height: 80%;
-          width: 80%; }
+          width: 80%; 
+        }
     body div main .score {
       display: flex;
       flex-direction: column;
@@ -181,40 +188,51 @@ body {
       display: flex;
       flex-direction: column;
       color: #8b8b8b;
-      font-size: 1rem }
+      font-size: 1rem;
+    }
     body div main .btnGame {
       font-weight: bolder;
       border: none;
       width: 72px;
       height: 72px;
       font-size: 1.3rem;
-      margin: 4px; }
-    body div footer p{
+      margin: 4px; 
+    }
+    body div footer p {
       font-size: .6rem;
       margin: 0;
       padding-top: 10px;
       color: #8b8b8b;
     }
 
-     .swal2-image {
-      margin: 0 !important;
-    }
-
-    .rotate {
-      transform: rotateY(-180deg); }
-    
-      @media screen and (min-width: 576px) and (max-width:991px) {
-    
-      }
-    
-      @media screen and (min-width:992px) {
-    
-      }
-    
+.trofeos {
+  color: #8b8b8b;
+  
+}
+.trofeos span {
+  color: #f7c184;
+}
+.scoreTitle {
+  color: #8b8b8b;
+  font-weight: bolder;
+}
+.dificulty p span {
+  color: #f7c184;
+}
+.dificulty {
+  display: flex;
+  justify-content: space-evenly;
+}
+.swal2-image {
+  margin: 0 !important;
+}
+.rotate {
+  transform: rotateY(-180deg); }
 
 @media screen and (min-width: 576px) and (max-width:991px) {
     body div header .h1 {
-      font-size: 2.5rem;}
+      font-size: 2.5rem;
+    }
       body div header .victories {
         font-size: 20px;
       }
@@ -244,7 +262,8 @@ body {
         width: 80px;
         height: 80px;
         font-size: 1.5rem;
-        margin: 4px; }
+        margin: 4px; 
+      }
         body div main .game-area .cardGame {
           width: 80px;
           height: 80px;
@@ -259,14 +278,15 @@ body {
       }
       body div main .score .statistics {
         font-size: 1.2rem }
-      body div footer p{
+      body div footer p {
         font-size: .8rem;  
       }  
 }
   
 @media screen and (min-width:992px) {
   body div header .h1 {
-    font-size: 2.5rem;}
+    font-size: 2.5rem;
+  }
     body div header .victories {
       font-size: 20px;
     }
@@ -299,7 +319,8 @@ body {
       width: 90px;
       height: 90px;
       font-size: 1.5rem;
-      margin: 4px; }
+      margin: 4px; 
+    }
       body div main .game-area .cardGame {
         width: 90px;
         height: 90px;
@@ -314,8 +335,9 @@ body {
       justify-content: space-evenly;
     }
     body div main .score .statistics {
-      font-size: 1.2rem }
-    body div footer p{
+      font-size: 1.2rem 
+    }
+    body div footer p {
       font-size: 1rem;  
     }  
 }
